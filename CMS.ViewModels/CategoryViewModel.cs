@@ -14,7 +14,6 @@ namespace CMS.ViewModels
         public string Title { get; set; }
         [DataType(DataType.Date)]
         public DateTime CreatedDate { get; set; }
-
         public CategoryViewModel()
         {
 

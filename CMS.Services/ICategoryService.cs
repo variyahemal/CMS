@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CMS.Utilities;
+using CMS.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,11 +10,11 @@ namespace CMS.Services
 {
     public interface ICategoryService
     {
-        //IEnumerable<CategoryViewModel> GetAll(int pageNumber, int pageSize);
-        //CategoryViewModel GetById(int id);
-        //void Update(CategoryViewModel model);
-        //void Insert(CategoryViewModel model);
-        //void Delete(int id);
-        //IEnumerator<CategoryViewModel> GetAll();
+        PagedResult<CategoryViewModel> GetAll(int pageNumber, int PageSize);
+        CategoryViewModel GetById(int Id);
+        void Update(CategoryViewModel model);
+        void Insert(CategoryViewModel model);
+        void Delete(int Id);
+        IEnumerable<CategoryViewModel> GetAll();
     }
 }

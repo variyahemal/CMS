@@ -7,18 +7,19 @@ using System.Threading.Tasks;
 
 namespace CMS.Repository.Implementation
 {
-    public class UnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
-        private readonly ApplicationDbContext _context;
+        public readonly ApplicationDbContext _context;
         public UnitOfWork(ApplicationDbContext context)
         {
             _context = context;
         }
         public IGenericRepository<T> GenericRepository<T>() where T : class
         {
-            IGenericRepository<T> repo = new GenericRepository<T>(_context);
+            IGenericRepository<T> repo = new GenericRepository<T>();
             return repo;
         }
+
         public void Save()
         {
             _context.SaveChanges();
