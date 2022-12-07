@@ -14,6 +14,7 @@ namespace CMS.Repository
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Post> Posts { get; set; }
 
     }
 }

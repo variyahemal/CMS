@@ -16,7 +16,7 @@ namespace CMS.Repository.Implementation
         }
         public IGenericRepository<T> GenericRepository<T>() where T : class
         {
-            IGenericRepository<T> repo = new GenericRepository<T>();
+            IGenericRepository<T> repo = new GenericRepository<T>(_context);
             return repo;
         }
 

@@ -6,12 +6,15 @@ using System.Threading.Tasks;
 
 namespace CMS.Utilities
 {
-    public class PagedResult<T>
+    public class PagedResult<T> where T : class
     {
-        public IList<T> Results { get; set; }
-        public int CurrentPage { get; set; }
-        public int PageCount { get; set; }
-        public int PageSize { get; set; }
-        public int RowCount { get; set; }
+        public PagedResult()
+        {
+            Data = new List<T>();
+        }
+        public List<T> Data { get; set; }
+        public long TotalItems { get; set; } = 0;
+        public long PageNumber { get; set; } = 1;
+        public int PageSize { get; set; } = 1;
     }
 }

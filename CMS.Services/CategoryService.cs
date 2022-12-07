@@ -48,9 +48,9 @@ namespace CMS.Services
             }
             var Result = new PagedResult<CategoryViewModel>
             {
-                Results = vmList,
-                PageCount = totalCount,
-                CurrentPage = pageNumber,
+                Data = vmList,
+                TotalItems = totalCount,
+                PageNumber = pageNumber,
                 PageSize = PageSize
             };
             return Result;
