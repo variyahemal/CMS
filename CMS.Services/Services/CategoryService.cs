@@ -1,5 +1,6 @@
 ﻿using CMS.Models;
 using CMS.Repository.Interface;
+using CMS.Services.IServices;
 using CMS.Utilities;
 using CMS.ViewModels;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
@@ -10,7 +11,7 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CMS.Services
+namespace CMS.Services.Services
 {
     public class CategoryService : ICategoryService
     {
@@ -34,7 +35,7 @@ namespace CMS.Services
             List<CategoryViewModel> vmList = new List<CategoryViewModel>();
             try
             {
-                int ExcludeRecords = (PageSize * pageNumber) - PageSize;
+                int ExcludeRecords = PageSize * pageNumber - PageSize;
                 var modelList = _unitOfWork.GenericRepository<Category>().GetAll()
                     .Skip(ExcludeRecords).Take(PageSize).ToList();
 

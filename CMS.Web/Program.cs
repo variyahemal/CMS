@@ -1,7 +1,8 @@
 using CMS.Repository;
 using CMS.Repository.Implementation;
 using CMS.Repository.Interface;
-using CMS.Services;
+using CMS.Services.IServices;
+using CMS.Services.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

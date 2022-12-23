@@ -15,6 +15,8 @@ namespace CMS.ViewModels
         public string Description { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime PublishDate { get; set; }
+        public int CategoryId { get; set; }
+        public Category Category { get; set; }
 
         public PostViewModel()
         {
@@ -27,6 +29,8 @@ namespace CMS.ViewModels
             Description = model.Description;
             CreatedDate = model.CreatedDate;
             PublishDate = model.PublishDate;
+            CategoryId = model.CategoryId;
+            Category = model.Category;
         }
         public Post ConvertViewModel(PostViewModel model)
         {
@@ -37,6 +41,8 @@ namespace CMS.ViewModels
                 Description = model.Description,
                 CreatedDate = model.CreatedDate,
                 PublishDate = model.PublishDate,
+                CategoryId = model.CategoryId,
+                Category = model.Category
             };
         }
     }

@@ -1,5 +1,6 @@
 ﻿using CMS.Models;
 using CMS.Repository.Interface;
+using CMS.Services.IServices;
 using CMS.Utilities;
 using CMS.ViewModels;
 using System;
@@ -8,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CMS.Services
+namespace CMS.Services.Services
 {
     public class PostService : IPostService
     {
@@ -32,7 +33,7 @@ namespace CMS.Services
             List<PostViewModel> vmList = new List<PostViewModel>();
             try
             {
-                int ExcludeRecords = (PageSize * pageNumber) - PageSize;
+                int ExcludeRecords = PageSize * pageNumber - PageSize;
                 var modelList = _unitOfWork.GenericRepository<Post>().GetAll()
                     .Skip(ExcludeRecords).Take(PageSize).ToList();
 
