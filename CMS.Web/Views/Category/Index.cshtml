@@ -1,15 +1,14 @@
-﻿@model IEnumerable<CMS.ViewModels.CategoryViewModel>
+﻿@using CMS.Utilities
+@model PagedResult<CMS.ViewModels.CategoryViewModel>
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
-
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-outline-primary">Create New</a>
 </p>
-<table class="table">
+<table class="table table-light">
     <thead>
         <tr>
             <th>
@@ -25,7 +24,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+        @foreach (var item in Model.Data)
         {
             <tr>
                 <td>
@@ -38,17 +37,17 @@
                     @Html.DisplayFor(modelItem => item.CreatedDate)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { Id = item.Id}) |
-                    @Html.ActionLink("Details", "Details", new { Id = item.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { Id = item.Id })
+                    @Html.ActionLink("Edit", "Edit", new { Id = item.Id},new { @class="btn btn-outline-secondary"})
+                    @Html.ActionLink("Details", "Details", new { Id = item.Id }, new { @class="btn btn-outline-info"})
+                    @Html.ActionLink("Delete", "Delete", new { Id = item.Id },  new { @class="btn btn-outline-danger"})
                 </td>
             </tr>
         }
     </tbody>
 </table>
-<cs-pager cs-paging-pagesize="(int)Model.PageSize"
-          cs-paging-pagenumber="(int)Model.PageNumber"
-          cs-paging-totalitems="(int)Model.TotalItemCount"
+<cs-pager cs-paging-pagesize="@Model.PageSize"
+          cs-paging-pagenumber="@Model.PageNumber"
+          cs-paging-totalitems="@Model.TotalItems"
           cs-pagenumber-param="pageNumber"
           asp-controller="Category"
           asp-action="Index"
@@ -58,3 +57,5 @@
           cs-pager-link-current-class="page-link"
           cs-pager-link-other-class="page-link">
 </cs-pager>
+
+@*@Html.Pager(@Model.PageSize, @Model.PageNumber, @Model.TotalItems)*@

@@ -1,4 +1,5 @@
 ﻿using CMS.Models;
+using CMS.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -16,7 +17,7 @@ namespace CMS.ViewModels
         public DateTime CreatedDate { get; set; }
         public CategoryViewModel()
         {
-
+            
         }
         public CategoryViewModel(Category model)
         {

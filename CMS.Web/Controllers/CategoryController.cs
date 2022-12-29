@@ -29,7 +29,7 @@ namespace CMS.Web.Controllers
         public IActionResult Edit(CategoryViewModel vm)
         {
             _service.Update(vm);
-            return View(vm);
+            return RedirectToAction("Index");
         }
         [HttpGet]
         public IActionResult Details(int Id)

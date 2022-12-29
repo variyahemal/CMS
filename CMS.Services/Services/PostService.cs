@@ -89,6 +89,9 @@ namespace CMS.Services.Services
             ModelById.Description = model.Description;
             ModelById.CreatedDate = model.CreatedDate;
             ModelById.PublishDate = model.PublishDate;
+            ModelById.Category = model.Category;
+            ModelById.CategoryId = model.CategoryId;
+            ModelById.Description = model.Description;
 
             _unitOfWork.GenericRepository<Post>().Update(ModelById);
             _unitOfWork.Save();

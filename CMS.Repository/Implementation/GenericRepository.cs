@@ -75,7 +75,7 @@ namespace CMS.Repository.Implementation
             }
             if (orderBy != null)
             {
-                return orderBy(query);
+                return orderBy(query).ToList();
             }
             else
             {
