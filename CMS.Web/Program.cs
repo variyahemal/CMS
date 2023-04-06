@@ -50,16 +50,6 @@ app.UseEndpoints(endpoints =>
         name: "default",
         pattern: "{controller=Category}/{action=Index}/{id?}");
 });
-
-
-
-//app.UseEndpoints(endpoints =>
-//{
-//    endpoints.MapControllerRoute(
-//        name: "default",
-//        pattern: "{controller=Category}/{action=Index}/{id?}");
-//});
-
 app.MapRazorPages();
 
 app.Run();
